@@ -1,0 +1,15 @@
+{
+  "name": "pr-checker",
+  "version": "1.0.0",
+  "description": "Check PR and format message for list of users",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "2.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node ./src/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
