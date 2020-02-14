@@ -115,7 +115,7 @@ fetch(requestUrl, {
     if (needReviewPRs.length > 0) {
       message += `У нас осталось ${needReviewPRs.length} непроверенных PR. Давайте не затягивать с их проверкой🤔\n\n`
       needReviewPRs.forEach((pr) => {
-        message += `- ${pr.title}\n${pr.url}\n`;
+        message += `- ${pr.isStale ? '🖍' : ''}${pr.title}\n${pr.url}\n`;
         let reviewers = ``;
         pr.requested_reviewers.forEach((reviewer) => {
           reviewers += `${team[reviewer.login]} `;
