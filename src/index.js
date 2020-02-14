@@ -10,7 +10,7 @@ const team = {
   arturtakoev: '@a.takoev',
   rtyurin: '@r.tyurin',
   TyaglovOV: '@o.tyaglov',
-  'shabanov-dlg': '@a.shabanov',
+  'a-shabanov': '@a.shabanov',
   pvlv: '@i.pavlov',
 };
 
