@@ -111,25 +111,32 @@ fetch(requestUrl, {
 
     const needReviewPRs = result.filter(pr => !pr.withoutReviewers);
     const needWorkPRs = result.filter(pr => pr.withoutReviewers);
-    let message = `Всем привет👋🏼\nУ нас осталось ${needReviewPRs.length} непроверенных PR. Давайте не затягивать с их проверкой🤔\n\n`;
-    needReviewPRs.forEach((pr) => {
-      message += `- ${pr.title}\n${pr.url}\n`;
-      let reviewers = ``;
-      pr.requested_reviewers.forEach((reviewer) => {
-        reviewers += `${team[reviewer.login]} `;
+    let message = `Всем привет👋🏼\n`;
+    if (needReviewPRs.length > 0) {
+      message += `У нас осталось ${needReviewPRs.length} непроверенных PR. Давайте не затягивать с их проверкой🤔\n\n`
+      needReviewPRs.forEach((pr) => {
+        message += `- ${pr.title}\n${pr.url}\n`;
+        let reviewers = ``;
+        pr.requested_reviewers.forEach((reviewer) => {
+          reviewers += `${team[reviewer.login]} `;
+        });
+        if (pr.requested_teams.some(team => team.name === 'Web')) {
+          reviewers += `+всем из dialogs/web `;
+        }
+        message += reviewers + `\n\n`
       });
-      if (pr.requested_teams.some(team => team.name === 'Web')) {
-        reviewers += `+всем из dialogs/web `;
-      }
-      message += reviewers + `\n\n`
-    });
+    }
     if (needWorkPRs.length > 0) {
       message += '\n--------\nА эти PR ждут решительных действий:\n';
       needWorkPRs.forEach((pr) => {
         message += `- ${pr.title}\n${pr.url}\n${team[pr.user.login]}\n\n`;
       })
     }
+    if (needReviewPRs.length === 0 && needWorkPRs.length === 0) {
+      message += `ВАУ! Все PR разобраны!🤩\nХорошего дня!🤗`;
+      console.log(message);
+      return;
+    }
     message += `\nИ помните:\n${SS[Math.floor(Math.random() * SS.length)]}\nХорошего дня!🤗`;
-
     console.log(message);
   });
