@@ -10,6 +10,6 @@
   "scripts": {
     "start": "node ./src/index.js"
   },
-  "author": "",
+  "author": "Andrey Shabanov<a.shabanov.develop@gmail.com>",
   "license": "ISC"
 }
