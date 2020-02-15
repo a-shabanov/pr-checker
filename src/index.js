@@ -90,4 +90,8 @@ fetch(requestUrl, {
     }
     message += `\nИ помните:\n${motivatingQuotes[Math.floor(Math.random() * motivatingQuotes.length)]}\nХорошего дня!🤗`;
     console.log(message);
+  })
+  .catch((err) => {
+    console.error(`Request failed: ${err.message}`);
+    process.exit(1);
   });
