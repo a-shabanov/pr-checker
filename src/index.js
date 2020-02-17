@@ -6,7 +6,7 @@ const team = {
   meafmira: '@o.nechiporenko',
   ElinRin: '@e.denisova',
   nkt: '@nkt',
-  dmitryShelomanov: '@d.shelomanov',
+  dmitryshelomanov: '@d.shelomanov',
   olegshilov: '@oleg',
   mnasyrov: '@m.nasyrov',
   arturtakoev: '@a.takoev',
@@ -14,6 +14,7 @@ const team = {
   TyaglovOV: '@o.tyaglov',
   'a-shabanov': '@a.shabanov',
   pvlv: '@i.pavlov',
+  jvoychenko: '@y.voychenco'
 };
 
 const requestUrl = 'https://api.github.com/repos/dialogs/dialog-web-platform/pulls';
